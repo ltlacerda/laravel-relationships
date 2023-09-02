@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace Multicaret\Acquaintances\Events;
 
 use App\Models\User;
 use Illuminate\Broadcasting\Channel;
