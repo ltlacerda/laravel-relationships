@@ -3,6 +3,7 @@
 
 namespace Multicaret\Acquaintances\Traits;
 
+use Multicaret\Acquaintances\Events\FriendshipSentEvent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Event;
 use Multicaret\Acquaintances\Interaction;
@@ -35,7 +36,8 @@ trait Friendable
 
         $this->friends()->save($friendship);
 
-        Event::dispatch('acq.friendships.sent', [$this, $recipient]);
+//        Event::dispatch('acq.friendships.sent', [$this, $recipient]);
+        event(new FriendshipSentEvent($this, $recipient));
 
         return $friendship;
 
